@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: transparent;
+}
+
+.nav-links{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  font: 100;
+  font-family: Arial;
+  
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #00ffcc, #00ccff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  gap: 5px;
+  margin-top: 15px;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  z-index: 1; /* ensure button is above videos */
+
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+}
+
+.hero button {
+  padding: 12px 25px;
+  background: linear-gradient(45deg, #00ffcc, #00ccff);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  z-index: 1; /* ensure button is above videos */
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* FLOATING BACKGROUND */
+.floating-media {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.float {
+  position: absolute;
+  width: 180px;
+  border-radius: 10px;
+  opacity: 0.1;
+  object-fit: cover;
+  animation: floatUp linear infinite;
+}
+
+/* 10 videos spread across the screen */
+.float:nth-child(1) { left: 5%; top: 10%; animation-duration: 30s; }
+.float:nth-child(2) { left: 20%; top: 30%; animation-duration: 35s; }
+.float:nth-child(3) { left: 35%; top: 50%; animation-duration: 32s; }
+.float:nth-child(4) { left: 50%; top: 20%; animation-duration: 28s; }
+.float:nth-child(5) { left: 65%; top: 40%; animation-duration: 33s; }
+.float:nth-child(6) { left: 80%; top: 60%; animation-duration: 30s; }
+.float:nth-child(7) { left: 10%; top: 70%; animation-duration: 36s; }
+.float:nth-child(8) { left: 30%; top: 80%; animation-duration: 34s; }
+.float:nth-child(9) { left: 55%; top: 75%; animation-duration: 31s; }
+.float:nth-child(10){ left: 75%; top: 10%; animation-duration: 29s; }
+
+/* Floating animation (up and down) */
+@keyframes floatUp {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-50px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* Keep content above background */
+.hero, nav, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero button {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  /* Make videos smaller on mobile */
+  .float {
+    width: 90px;
+    opacity: 0.08;
+  }
+
+  /* Adjust nav links */
+  .nav-links {
+    right: 15px;
+    top: 10px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+}
